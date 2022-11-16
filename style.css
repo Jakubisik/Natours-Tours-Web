@@ -73,6 +73,18 @@ select {
   }
 }
 
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #777;
+  padding: 3.5rem;
+}
+
 .header {
   height: 95vh;
   background-image: linear-gradient(
@@ -89,28 +101,118 @@ select {
 
 .logo-box {
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 4rem;
+  left: 4rem;
 }
 
 .logo {
-  height: 35px;
+  height: 4.2rem;
 }
 
 .header-text-box {
   color: #fff;
   text-transform: uppercase;
-  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .heading-primary-main {
-  font-size: 60px;
-  font-weight: 700;
-  letter-spacing: 35px;
+  font-size: 7rem;
+  font-weight: 400;
+  letter-spacing: 3.5rem;
+  animation: moveLeft 1s ease-out 1s;
+  animation-fill-mode: backwards;
+  -webkit-animation-fill-mode: backwards;
 }
 
 .heading-primary-sub {
-  font-size: 20px;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 600;
   letter-spacing: 17.4px;
+  animation: moveRight 1s ease-out 1s;
+  animation-fill-mode: backwards;
+  -webkit-animation-fill-mode: backwards;
+  margin-bottom: 5rem;
+}
+
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn:link,
+.btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  border-radius: 5rem;
+}
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+  font-size: 2rem;
+  font-weight: 400;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 10px 0 rgba(51, 51, 51, 0.3);
+  transition: transform 0.2s;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 5px 0 rgba(51, 51, 51, 0.5);
+  transition: transform 0s;
+}
+
+.btn--animated {
+  animation: moveBottom 1s ease-out 1.4s;
+  -webkit-animation: moveBottom 1s ease-out 1.4s;
+  animation-fill-mode: backwards;
+  -webkit-animation-fill-mode: backwards;
 }
