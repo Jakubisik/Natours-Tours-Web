@@ -20,8 +20,8 @@ dd {
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
-ul[role="list"],
-ol[role="list"] {
+ul[role=list],
+ol[role=list] {
   list-style: none;
 }
 
@@ -39,7 +39,8 @@ body {
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-  text-decoration-skip-ink: auto;
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
@@ -62,17 +63,17 @@ select {
   html:focus-within {
     scroll-behavior: auto;
   }
-
   *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
 html {
   font-size: 62.5%;
 }
@@ -87,15 +88,11 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(
-      to right bottom,
-      rgba(126, 213, 111, 0.8),
-      rgba(40, 100, 131, 0.8)
-    ),
-    url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 100, 131, 0.8)), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
 }
 
@@ -126,7 +123,8 @@ body {
   font-weight: 400;
   letter-spacing: 3.5rem;
   margin-right: -3.5rem;
-  animation: moveLeft 1s ease-out 1s;
+  -webkit-animation: moveLeft 1s ease-out 1s;
+          animation: moveLeft 1s ease-out 1s;
   animation-fill-mode: backwards;
   -webkit-animation-fill-mode: backwards;
 }
@@ -136,10 +134,25 @@ body {
   font-weight: 600;
   letter-spacing: 17.4px;
   margin-right: -17.4px;
-  animation: moveRight 1s ease-out 1s;
+  -webkit-animation: moveRight 1s ease-out 1s;
+          animation: moveRight 1s ease-out 1s;
   animation-fill-mode: backwards;
   -webkit-animation-fill-mode: backwards;
   margin-bottom: 5rem;
+}
+
+@-webkit-keyframes moveLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  80% {
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes moveLeft {
@@ -155,7 +168,19 @@ body {
     transform: translateX(0);
   }
 }
-
+@-webkit-keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  80% {
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 @keyframes moveRight {
   0% {
     opacity: 0;
@@ -169,7 +194,19 @@ body {
     transform: translateX(0);
   }
 }
-
+@-webkit-keyframes moveBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes moveBottom {
   0% {
     opacity: 0;
@@ -183,7 +220,6 @@ body {
     transform: translateY(0);
   }
 }
-
 .btn:link,
 .btn:visited {
   text-transform: uppercase;
@@ -191,18 +227,18 @@ body {
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 5rem;
-
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 9px 10px 0 rgba(51, 51, 51, 0.3);
-    transition: transform 0.2s;
-  }
-
-  &:active {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 5px 0 rgba(51, 51, 51, 0.5);
-    transition: transform 0s;
-  }
+}
+.btn:link:hover,
+.btn:visited:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 10px 0 rgba(51, 51, 51, 0.3);
+  transition: transform 0.2s;
+}
+.btn:link:active,
+.btn:visited:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 5px 0 rgba(51, 51, 51, 0.5);
+  transition: transform 0s;
 }
 
 .btn--white {
@@ -230,21 +266,16 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(
-    to right bottom,
-    rgba(126, 213, 111, 0.8),
-    rgba(40, 100, 131, 0.8)
-  );
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 100, 131, 0.8));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   letter-spacing: 0.2rem;
   transition: all 0.2s;
-
-  &:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(3, 3, 3, 0.3);
-  }
+}
+.heading-secondary:hover {
+  transform: skewY(2deg) skewX(15deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(3, 3, 3, 0.3);
 }
 
 .u-center-text {
@@ -254,9 +285,6 @@ body {
 .row {
   display: flex;
   row-gap: 4rem;
-}
-
-.col-1-of-2 {
 }
 
 .heading-tertiary {
@@ -271,4 +299,4 @@ body {
 
 .section-about-img {
   width: 55%;
-}
+}/*# sourceMappingURL=main.css.map */
