@@ -82,7 +82,7 @@ body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color: #333;
+  color: #555;
   padding: 3.5rem;
 }
 
@@ -282,9 +282,15 @@ body {
   text-align: center;
 }
 
+.u-margin-bottom-big {
+  margin-bottom: 8rem !important;
+}
+
 .row {
+  max-width: 114rem;
+  margin: 0 auto;
   display: flex;
-  row-gap: 4rem;
+  gap: 8rem;
 }
 
 .heading-tertiary {
