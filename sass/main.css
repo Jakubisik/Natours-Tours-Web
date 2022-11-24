@@ -93,7 +93,7 @@ body {
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
-  background-image: linear-gradient(to right bottom, hsl(111deg, 82%, 72%), hsl(152deg, 100%, 28%)), url(../img/hero.jpg);
+  background-image: linear-gradient(to right bottom, hsla(110.8deg, 81.8%, 72%, 0.7), hsla(152deg, 100%, 28%, 0.7)), url(../img/hero.jpg);
 }
 
 .logo-box {
@@ -110,7 +110,7 @@ body {
   color: hsl(0deg, 0%, 100%);
   text-transform: uppercase;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: flex;
@@ -119,8 +119,8 @@ body {
 }
 
 .heading-primary-main {
-  font-size: 7rem;
-  font-weight: 400;
+  font-size: 10rem;
+  font-weight: 500;
   letter-spacing: 3.5rem;
   margin-right: -3.5rem;
   -webkit-animation: moveLeft 1s ease-out 1s;
@@ -130,7 +130,7 @@ body {
 }
 
 .heading-primary-sub {
-  font-size: 2rem;
+  font-size: 3rem;
   font-weight: 600;
   letter-spacing: 17.4px;
   margin-right: -17.4px;
@@ -220,34 +220,51 @@ body {
     transform: translateY(0);
   }
 }
-.btn:link,
-.btn:visited {
+.btn, .btn:link, .btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
   display: inline-block;
   border-radius: 5rem;
+  position: relative;
+  transition: all 0.2s;
 }
-.btn:link:hover,
-.btn:visited:hover {
+.btn:hover {
   transform: translateY(-3px);
   box-shadow: 0 9px 10px 0 rgba(51, 51, 51, 0.3);
-  transition: transform 0.2s;
+  transition: transform all 0.2s;
 }
-.btn:link:active,
-.btn:visited:active {
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+.btn:active {
   transform: translateY(-1px);
   box-shadow: 0 4px 5px 0 rgba(51, 51, 51, 0.5);
   transition: transform 0s;
 }
-
 .btn--white {
   background-color: hsl(0deg, 0%, 100%);
   color: hsl(0deg, 0%, 47%);
   font-size: 2rem;
   font-weight: 400;
 }
-
+.btn--white::after {
+  background-color: hsl(0deg, 0%, 100%);
+  color: hsl(0deg, 0%, 47%);
+}
+.btn::after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  border-radius: 10rem;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  transition: all 0.4s;
+}
 .btn--animated {
   animation: moveBottom 1s ease-out 1.4s;
   -webkit-animation: moveBottom 1s ease-out 1.4s;
@@ -301,6 +318,38 @@ body {
   gap: 8rem;
 }
 
+.img-container {
+  position: relative;
+}
+
+.composition__photo {
+  width: 45%;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.4);
+  border-radius: 1px;
+  position: absolute;
+  transition: all 0.2s;
+  outline-offset: 2rem;
+  z-index: 10;
+}
+.composition__photo--p1 {
+  top: 10%;
+  left: 2rem;
+}
+.composition__photo--p2 {
+  top: 0;
+  left: 0;
+}
+.composition__photo--p3 {
+  top: 0;
+  left: 0;
+}
+.composition__photo:hover {
+  outline: 1.5rem solid #55c57a;
+  transform: scale(1.05) translateY(-0.5rem);
+  box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.5);
+  z-index: 20;
+}
+
 .heading-tertiary {
   font-size: 2rem;
   font-weight: 700;
@@ -316,11 +365,18 @@ body {
 }
 
 .btn-text {
+  display: inline-block;
   font-size: 2rem;
   cursor: pointer;
   text-decoration: none;
   color: hsl(140deg, 49%, 55%);
   border-bottom: 1px solid hsl(140deg, 49%, 55%);
-  padding: 3px;
+  padding: 6px 4px;
   transition: all 0.2s;
+}
+.btn-text:hover {
+  color: hsl(0deg, 0%, 95%);
+  background-color: hsl(140deg, 49%, 55%);
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(3, 3, 3, 0.3);
 }/*# sourceMappingURL=main.css.map */
