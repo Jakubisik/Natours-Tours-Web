@@ -88,13 +88,12 @@ body {
 
 .header {
   height: 95vh;
-  background-image: linear-gradient(to right bottom, hsl(111deg, 82%, 72%), hsl(152deg, 100%, 28%)), url(../img/hero.jpg);
   background-size: cover;
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
           clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   position: relative;
-  border-corner-image: url();
+  background-image: linear-gradient(to right bottom, hsl(111deg, 82%, 72%), hsl(152deg, 100%, 28%)), url(../img/hero.jpg);
 }
 
 .logo-box {
