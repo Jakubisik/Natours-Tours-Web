@@ -219,7 +219,6 @@ body {
     color: hsl(0, 0%, 47%);
     font-size: 2rem;
     font-weight: 400;
-
     &::after {
       background-color: hsl(0, 0%, 100%);
       color: hsl(0, 0%, 47%);
@@ -292,7 +291,7 @@ body {
 }
 
 .row {
-  max-width: 114rem;
+  max-width: 150rem;
   margin: 0 auto;
   display: flex;
   gap: 8rem;
@@ -366,5 +365,43 @@ body {
     background-color: hsl(140, 49%, 55%);
     transform: translateY(-5px);
     box-shadow: 0 1rem 2rem rgba(3, 3, 3, 0.3);
+  }
+}
+
+.section--features {
+  background-size: cover;
+  background-position: top;
+  background-image: linear-gradient(
+      to right bottom,
+      hsla(110.8, 81.8%, 72%, 0.7),
+      hsla(152deg, 100%, 28%, 0.7)
+    ),
+    url(../img/nat-4.jpg);
+  transform: skewY(-7deg);
+  padding: 20rem 0;
+  margin-top: -12rem;
+
+  & > * {
+    transform: skewY(7deg);
+  }
+}
+
+.features--box {
+  background-color: hsla(0, 0%, 100%, 0.8);
+  border-radius: 6px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  padding: 2.5rem;
+
+  &__img {
+    font-size: 11rem;
+    font-weight: 300;
+    background-image: linear-gradient(
+      to right bottom,
+      hsl(111, 82%, 72%),
+      hsl(152, 100%, 28%)
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }
