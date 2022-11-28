@@ -630,4 +630,73 @@ body {
   width: 100%;
   -o-object-fit: cover;
   object-fit: cover;
+}
+
+.section--book {
+  padding: 15rem 0;
+  background-image: linear-gradient(to right bottom, hsl(110.8deg, 81.8%, 72%), hsl(152deg, 100%, 28%));
+}
+
+.book {
+  max-width: 150rem;
+  margin: 0 auto;
+  background-image: linear-gradient(105deg, hsla(0deg, 0%, 100%, 0.9) 0%, hsla(0deg, 0%, 100%, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
+  height: 50rem;
+  background-size: cover;
+  border-radius: 6px;
+  box-shadow: 0 1.5rem 4rem hsla(0deg, 0%, 33%, 0.2);
+}
+.book__form {
+  width: 50%;
+  padding: 6rem;
+}
+
+.form__group:not(:last-child) {
+  margin-bottom: 2rem;
+}
+.form__input {
+  font-size: 1.8rem;
+  font-family: inherit;
+  padding: 1.5rem 2rem;
+  border-radius: 3px;
+  border: none;
+  background-color: hsla(0deg, 0%, 100%, 0.5);
+  border-bottom: 3px solid transparent;
+  width: 90%;
+  display: block;
+  color: hsl(0deg, 0%, 20%);
+}
+.form__input:focus {
+  outline: none;
+  box-shadow: 0 1remn 2rem hsla(0deg, 0%, 33%, 0.2);
+  border-bottom: 3px solid hsl(140deg, 49%, 55%);
+}
+.form__input:focus:invalid {
+  border-bottom: 3px solid hsl(21deg, 100%, 59%);
+}
+.form__input::-webkit-input-placeholder {
+  color: hsl(0deg, 0%, 60%);
+}
+.form__label {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.4s;
+}
+.form__input:-moz-placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+.form__input:-ms-input-placeholder + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
+}
+.form__input:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4rem);
 }/*# sourceMappingURL=main.css.map */
