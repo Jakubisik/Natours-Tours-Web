@@ -303,6 +303,10 @@ body {
   display: flex;
   gap: 8rem;
 
+  &--col {
+    flex-direction: column;
+  }
+
   & > * {
     width: 50%;
   }
@@ -654,23 +658,85 @@ body {
 }
 
 .section--stories {
-  background-color: hsla(0, 0%, 91.8%, 0.49);
+  position: relative;
+  padding: 15rem 0;
 }
 
 .story {
   width: 75%;
   margin: 0 auto;
-  box-shadow: 0 3rem 6rem #333 0.1;
-  border-radius: 6px;
+  -webkit-box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  -webkit-transform: skewX(-12deg);
+  transform: skewX(-12deg);
 
   &__text {
-    font-size: 1.8rem;
-    padding: 6rem;
-    clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-    background-color: hsla(0, 0%, 91.8%, 0.49);
+    -webkit-transform: skewX(12deg);
+    transform: skewX(12deg);
+  }
+
+  &__shape {
+    width: 15rem;
+    height: 15rem;
+    float: left;
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    transform: translateX(-3rem) skewX(12deg);
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    -webkit-transform: translateX(-4rem) scale(1.4);
+    transform: scale(1.4);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+
+  &:hover &__img {
+    -webkit-transform: translateX(-4rem) scale(1);
+    transform: scale(1);
+    -webkit-filter: blur(3px) brightness(80%);
+    filter: blur(3px) brightness(80%);
+  }
+
+  &__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 20%);
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  &:hover &__caption {
+    opacity: 1;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
   }
 }
-
 .bg-video {
   position: absolute;
   top: 0;
@@ -678,7 +744,7 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.2;
   overflow: hidden;
 
   &__content {

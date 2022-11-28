@@ -321,6 +321,9 @@ body {
   display: flex;
   gap: 8rem;
 }
+.row--col {
+  flex-direction: column;
+}
 .row > * {
   width: 50%;
 }
@@ -547,21 +550,69 @@ body {
 }
 
 .section--stories {
-  background-color: hsla(0deg, 0%, 91.8%, 0.49);
+  position: relative;
+  padding: 15rem 0;
 }
 
 .story {
   width: 75%;
   margin: 0 auto;
-  box-shadow: 0 3rem 6rem #333 0.1;
-  border-radius: 6px;
+  box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 6rem;
+  padding-left: 6rem;
+  padding-left: 9rem;
+  font-size: 1.6rem;
+  transform: skewX(-12deg);
 }
 .story__text {
-  font-size: 1.8rem;
-  padding: 6rem;
-  -webkit-clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-          clip-path: polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%);
-  background-color: hsla(0deg, 0%, 91.8%, 0.49);
+  transform: skewX(12deg);
+}
+.story__shape {
+  width: 15rem;
+  height: 15rem;
+  float: left;
+  shape-outside: circle(50% at 50% 50%);
+  -webkit-shape-outside: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+  -webkit-clip-path: circle(50% at 50% 50%);
+  transform: translateX(-3rem) skewX(12deg);
+  position: relative;
+  overflow: hidden;
+  border-radius: 50%;
+}
+.story__img {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: scale(1.4);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transition: all 0.5s;
+}
+.story:hover .story__img {
+  transform: scale(1);
+  filter: blur(3px) brightness(80%);
+}
+.story__caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 20%);
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.5s;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.story:hover .story__caption {
+  opacity: 1;
+  transform: translate(-50%, -50%);
 }
 
 .bg-video {
@@ -571,7 +622,7 @@ body {
   height: 100%;
   width: 100%;
   z-index: -1;
-  opacity: 0.15;
+  opacity: 0.2;
   overflow: hidden;
 }
 .bg-video__content {
