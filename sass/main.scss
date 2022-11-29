@@ -45,7 +45,6 @@ a:not([class]) {
 img,
 picture {
   max-width: 100%;
-  display: block;
 }
 
 /* Inherit fonts for inputs and buttons */
@@ -196,6 +195,9 @@ body {
     border-radius: 5rem;
     position: relative;
     transition: all 0.2s;
+
+    border: none;
+    cursor: pointer;
   }
 
   &:hover {
@@ -209,7 +211,9 @@ body {
     }
   }
 
-  &:active {
+  &:active,
+  &:focus {
+    outline: none;
     transform: translateY(-1px);
     box-shadow: 0 4px 5px 0 rgba(51, 51, 51, 0.5);
     transition: transform 0s;
@@ -295,6 +299,11 @@ body {
 
 .u-margin-bottom-big {
   margin-bottom: 9rem !important;
+}
+
+.container {
+  max-width: 150rem;
+  margin: 0 auto;
 }
 
 .row {
@@ -765,8 +774,6 @@ body {
 }
 
 .book {
-  max-width: 150rem;
-  margin: 0 auto;
   background-image: linear-gradient(
       105deg,
       hsla(0, 0%, 100%, 0.9) 0%,
@@ -774,7 +781,6 @@ body {
       transparent 50%
     ),
     url(../img/nat-10.jpg);
-  height: 50rem;
   background-size: cover;
   border-radius: 6px;
   box-shadow: 0 1.5rem 4rem hsla(0, 0%, 33%, 0.2);
@@ -830,5 +836,113 @@ body {
     opacity: 0;
     visibility: hidden;
     transform: translateY(-4rem);
+  }
+
+  &__radio-group {
+    width: 49%;
+    display: inline-block;
+  }
+
+  &__radio-label {
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: relative;
+    padding-left: 4.5rem;
+  }
+
+  &__radio-button {
+    height: 3rem;
+    width: 3rem;
+    border: 5px solid hsl(140, 49%, 55%);
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    top: -0.3rem;
+    left: 0;
+
+    &::after {
+      content: "";
+      display: block;
+      height: 1.1rem;
+      width: 1.1rem;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: hsl(140, 49%, 55%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &__radio-input {
+    display: none;
+  }
+
+  &__radio-input:checked ~ &__radio-label &__radio-button::after {
+    opacity: 1;
+  }
+}
+
+.footer {
+  background-color: hsl(0, 0%, 20%);
+  padding: 13rem 0;
+  font-size: 1.8rem;
+  color: hsl(0, 0%, 97%);
+
+  &__logo {
+    width: 15rem;
+    height: auto;
+
+    &-box {
+      text-align: center;
+      margin-bottom: 8rem;
+    }
+  }
+
+  &__navigation {
+    border-top: 1px solid hsl(0, 0%, 60%);
+    padding-top: 2rem;
+    display: inline-block;
+  }
+
+  &__list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  &__item {
+    display: inline-block;
+
+    &:not(:last-child) {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__link {
+    &:link,
+    &:visited {
+      background-color: hsl(0, 0%, 20%);
+      color: inherit;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    &:hover,
+    &:active {
+      color: #55c57a;
+      box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+      transform: rotate(5deg) scale(1.3);
+    }
+  }
+
+  &__copyright {
+    border-top: 1px solid hsl(0, 0%, 60%);
+    padding-top: 2rem;
+    width: 80%;
+    float: right;
   }
 }
