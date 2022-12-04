@@ -1,4 +1,9 @@
-@import "mixins";
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 /* Remove default margin */
 body,
@@ -18,6 +23,17 @@ dd {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
 }
 
 /* A elements that don't have a class get default styles */
@@ -48,7 +64,6 @@ select {
   *,
   *::before,
   *::after {
-    box-sizing: border-box;
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -56,40 +71,11 @@ select {
   }
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
 html {
-  // This defines what 1rem is
-  font-size: 62.5%; //1 rem = 10px; 10px/16px = 62.5%
-
-  @include respond(tab-land) {
-    // width < 1200?
-    font-size: 56.25%; //1 rem = 9px, 9/16 = 50%
-  }
-
-  @include respond(tab-port) {
-    // width < 900?
-    font-size: 50%; //1 rem = 8px, 8/16 = 50%
-  }
-
-  @include respond(big-desktop) {
-    font-size: 75%; //1rem = 12, 12/16
-  }
-
-  &:focus-within {
-    scroll-behavior: smooth;
-  }
+  font-size: 62.5%;
 }
 
 body {
-  min-height: 100vh;
-  text-rendering: optimizeSpeed;
   font-family: "Lato", sans-serif;
   font-weight: 400;
   line-height: 1.5;
@@ -98,7 +84,7 @@ body {
 }
 
 .header {
-  height: 10vh;
+  height: 95vh;
   background-size: cover;
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
