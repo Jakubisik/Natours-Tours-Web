@@ -78,6 +78,15 @@ select {
 
 html {
   font-size: 62.5%; }
+  @media only screen and (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media only screen and (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media only screen and (min-width: 130em) {
+    html {
+      font-size: 75%; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -92,17 +101,7 @@ body {
   background-position: top;
   clip-path: polygon(0 0, 100% 0, 100% 80vh, 0 100%);
   position: relative;
-  background-image: linear-gradient(to right bottom, rgba(143, 242, 125, 0.7), rgba(0, 143, 76, 0.7)), url(../img/hero.jpg);
-  font-size: 62.5%; }
-  @media only screen and (max-width: 75em) {
-    .header {
-      font-size: 56.25%; } }
-  @media only screen and (max-width: 56.25em) {
-    .header {
-      font-size: 50%; } }
-  @media only screen and (min-width: 112.5em) {
-    .header {
-      font-size: 75%; } }
+  background-image: linear-gradient(to right bottom, rgba(143, 242, 125, 0.7), rgba(0, 143, 76, 0.7)), url(../img/hero.jpg); }
 
 .logo-box {
   position: absolute;
